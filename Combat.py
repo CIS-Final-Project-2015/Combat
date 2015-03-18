@@ -18,7 +18,7 @@ class Combat(object):
     inCombat = players + monsters
     outOfCombat = []
 
-    def SetCombatOrder(players, monsters):
+    def setCombatOrder(players, monsters):
 
         inCombat = {
             }
@@ -37,7 +37,6 @@ class Combat(object):
         sortedCombat = sorted(inCombat, key=inCombat.get)
         sortedCombat.reverse()
 
-        print(sortedCombat)
 
         return sortedCombat
 
@@ -57,26 +56,65 @@ class Combat(object):
                 if player.health <= 0:
                     outOfCombat.append(player.name)
                     combatOrder.remove(player.name)
-                    print (outOfCombat)
-                    print (combatOrder)
-        
-                elif player.health > 0:
-                    print (combatOrder)
             elif player.name in outOfCombat:
                 if player.health > 0:
                     combatOrder.append(player.name)
                     outOfCombat.remove(player.name)
-                    print(combatOrder)
-                else:
-                    print(outOfCombat)
 
-    def ApplyDamage(Amount,Target):
+    def targeting(attacker, players, monsters, inCombat):
+        #To tell the monsters who to attack.
+        monName = []
+        plaName = []
+        for i in monsters:
+            monName.append(i.name)
+
+        for i in players:
+            plaName.append(i.name)
+            
+        if attacker.name in plaName:
+            print (monName)
+            targetName = input("Who does " + attacker.name + " want to attack?")
+            valid = False
+            while valid == False:
+                time = 0
+                for i in monsters:
+                    if i.name == targetName:
+                        target = i
+                        valid = True
+                    else:
+                        time +=1
+                if time == 4:
+                    print("You spelled the name wrong, try again")
+                    targetName = input("Who does " + attacker.name + " want to attack?")
+                    time = 0
+                
+            print(target.name)
+        elif attacker.name in monName:
+            target = random.randrange(0, len(players))
+            target = players[target]
+            print(target.name)
+        return target
+
+    def calcDamage(attacker):
+        damageDone = attacker.damage
+        return damageDone
+        
+
+    def applyDamage(target, monsters, players, damage):
         #To calculate and distribute to the correct monster or player, the damage delt
-        print("Test")
+        target.health = target.health - damage
+        print(target.health)
+        
 
-    combatOrder = SetCombatOrder(players,monsters)
+
+    combatOrder = setCombatOrder(players,monsters)
 
     for i in inCombat:
         lifeStatus(i, combatOrder, outOfCombat, players, monsters, inCombat)
 
+    for i in inCombat:
+        target = targeting(i, players, monsters, inCombat)
+        damageDone = calcDamage(i)
+        applyDamage(target, monsters, players, damageDone)
+    
 Combat()
