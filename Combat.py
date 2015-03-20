@@ -5,7 +5,7 @@
 import operator
 import random
 import playerClass
-import monsterClass
+import testEncounter
 
 #We need to get the damage done to the entity and distribute it to the correct target.
 
@@ -14,10 +14,16 @@ class Combat(object):
         }
     
     players = playerClass.players
-    monsters = monsterClass.monsters
+    monsters = testEncounter.monsters
     inCombat = players + monsters
     outOfCombat = []
+    xp = 0
+    for i in monsters:
+        xp = xp + i.xp
 
+    xpPerPlayer = xp / 4
+    print (xpPerPlayer)
+        
     def setCombatOrder(players, monsters):
 
         inCombat = {
@@ -36,6 +42,8 @@ class Combat(object):
         #This puts the charachters in order from greatest to least. The sortedCombat.reverse() puts the list from largest to smallest.
         sortedCombat = sorted(inCombat, key=inCombat.get)
         sortedCombat.reverse()
+
+        print(sortedCombat)
 
 
         return sortedCombat
@@ -64,10 +72,10 @@ class Combat(object):
     def targeting(attacker, players, monsters, inCombat):
         #To tell the monsters who to attack.
         monName = []
+        monHP = []
         plaName = []
         for i in monsters:
             monName.append(i.name)
-
         for i in players:
             plaName.append(i.name)
             
