@@ -28,3 +28,5 @@ modifier.py actualy checks the monster or characters ability scores, then puts o
 levelinfo.py sets the xp needed to lvl up based off the characters current lvl
 
 we still need some actual data, but we created are own for testing purpeses. The most important thing is getting a test character to put thrue combat.
+
+We also need to find a way to give all the monsters there damage for the multible attacks
