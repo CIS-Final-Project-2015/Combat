@@ -1,10 +1,6 @@
-import monsterClassV2
-import modifier
-import dice
 
 
-monster = monsterClassV2.goblin
-monMod = modifier.Modifier(monster.strength, monster.dexterity, monster.constitution, monster.intelligence, monster.wisdom, monster.charisma)
+
 
 
 class Monster(object):
@@ -14,20 +10,17 @@ class Monster(object):
     damage = 1
     xp = 1
 
-    def __init__(self, name, health, initiative, damage, xp):
+    def __init__(self, name, health, initiative, damage):
         self.name = name
         self.health = health
         self.initiative = initiative
         self.damage = damage
-        self.xp = xp
 
 
-monster1 = Monster(monster.name + " 1", monster.hp, dice.Dice(6).roll + monMod.dexMod, 2, monster.xp)
-monster2 = Monster(monster.name + " 2", monster.hp, dice.Dice(6).roll + monMod.dexMod, 2, monster.xp)
-monster3 = Monster(monster.name + " 3", monster.hp, dice.Dice(6).roll + monMod.dexMod, 2, monster.xp)
-monster4 = Monster(monster.name + " 4", monster.hp, dice.Dice(6).roll + monMod.dexMod, 2, monster.xp)
+monster1 = Monster("goblin 1", 5, 1, 2)
+monster2 = Monster("goblin 2", 5, 2, 2)
+monster3 = Monster("goblin 3", 5, 3, 2)
+monster4 = Monster("goblin 4", 5, 4, 2)
 
 monsters= [monster1, monster2, monster3, monster4]
 
-for i in monsters:
-    print(i.initiative)
