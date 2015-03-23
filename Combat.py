@@ -17,12 +17,6 @@ class Combat(object):
     monsters = testEncounter.monsters
     inCombat = players + monsters
     outOfCombat = []
-    xp = 0
-    for i in monsters:
-        xp = xp + i.xp
-
-    xpPerPlayer = xp / 4
-    print (xpPerPlayer)
         
     def setCombatOrder(players, monsters):
 
@@ -44,6 +38,7 @@ class Combat(object):
         sortedCombat.reverse()
 
         print(sortedCombat)
+
 
 
         return sortedCombat
