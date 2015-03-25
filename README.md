@@ -15,3 +15,10 @@ We have the damage done, and the target selected
 We have it to where the players can select the target without problems
 We need actual data so we can test evrything.
 
+#Update 3/25/2015
+
+The critical works with the testing factors, but not with actual data (Because we have none to test)
+
+Also there are some new files, like testPlayers.py. It is for more testing purpeses. 
+
+We will need at least one official test encounter and 4 official created characters. After that, testing begins.
