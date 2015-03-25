@@ -127,8 +127,7 @@ class Combat(object):
     def applyDamage(target, monsters, players, damage):
         #To calculate and distribute to the correct monster or player, the damage delt
         target.health = target.health - damage
-        print(target.health)
-        
+        print(damage)        
 
 
     combatOrder = setCombatOrder(players,monsters)

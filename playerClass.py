@@ -22,7 +22,6 @@ class Player(object):
         self.armorClass = armorClass
         self.weapon = weapon
 
-        self.damage = 1
 
         #This is all for damage and critical damage. It works fine now :)
         
@@ -30,23 +29,21 @@ class Player(object):
         crit = weapon.critRange
 
         ifCrit = False
-        if crit == hit:
+        if crit <= hit:
             ifCrit = True
 
         if ifCrit == True:
             damage = weapon.damage + weapon.damage
-            print(damage)
         elif ifCrit == False:
             damage = weapon.damage
-            print(damage)
+        self.damage = damage
 
 Dave = Player("Dave", 3, 8, 13, testWeapon.dagger)
 Raulph = Player("Raulph", 22, 10, 15, testWeapon.sword)
 Hannah = Player("Hannah", 10, 6, 19, testWeapon.bow)
-Nick = Player("Nick", 2, 9, 11, testWeapon.staff)
+Nick = Player("Nick", 2, 9, 11, testWeapon.spear)
 
 
 
 players = [Dave, Raulph, Hannah, Nick]
-
 

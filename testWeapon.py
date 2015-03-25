@@ -9,6 +9,7 @@ import dice
 
 
 #V 0.0.1 Update: All weapons are equal but seem to work. In next update we are going to give the weapons there actual values with damage and stuff
+#V 0.0.2 Update: All the weapons have gotten there actual data for mediume characters. IT works properly, witch is nice
 
 
 
@@ -24,7 +25,7 @@ class Weapon(object):
 
 #Test weapons :)
 
-dagger = Weapon("Dagger", dice.Dice(6).roll, 20)
-sword = Weapon("Sword", dice.Dice(6).roll, 20)
-bow = Weapon("Bow", dice.Dice(6).roll, 20)
-staff = Weapon("Staff", dice.Dice(6).roll, 20)
+dagger = Weapon("Dagger", dice.Dice(4).roll, 19)
+sword = Weapon("Sword", dice.Dice(6).roll, 19)
+bow = Weapon("Bow", dice.Dice(8).roll, 20)
+spear = Weapon("Spear", dice.Dice(8).roll, 20)

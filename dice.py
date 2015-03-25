@@ -11,5 +11,5 @@ class Dice(object):
 
     def __init__(self, sides):
         self.sides = 1
-        roll = random.randint(1, sides)
+        self.roll = random.randint(1, sides)
     
