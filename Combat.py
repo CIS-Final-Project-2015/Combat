@@ -19,6 +19,7 @@ class Combat(object):
     outOfCombat = []
         
     def setCombatOrder(players, monsters):
+        
 
         #Sorts out the players and the monsters in the list via initiative. Works like a charm
         
