@@ -42,8 +42,11 @@ class Combat(object):
         sortedCombat = sorted(inCombat, key=inCombat.get)
         sortedCombat.reverse()
 
-        print(sortedCombat)
-
+        x = 1
+        print("Here is the combat order: \n")
+        for i in sortedCombat:
+            print (i + " :" + str(x))
+            x += 1
 
 
         return sortedCombat
@@ -91,7 +94,10 @@ class Combat(object):
 
         #This is where we use the updated list to compare the attackers name to the lists. If the attackers name is in monsters, it randomly attacks, else the player gets to choose who to attack
         if attacker.name in plaName:
-            print (monName)
+            print("\nMonsters you can attack: \n")
+            for i in monName:
+                print (i)
+            print("")
             targetName = input("Who does " + attacker.name + " want to attack?")
             valid = False
 
@@ -127,6 +133,7 @@ class Combat(object):
     def applyDamage(target, monsters, players, damage):
         #To calculate and distribute to the correct monster or player, the damage delt
         target.health = target.health - damage
+        print (target.health)
         print(damage)        
 
 
