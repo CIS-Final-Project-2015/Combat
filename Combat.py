@@ -19,7 +19,12 @@ class Combat(object):
     outOfCombat = []
         
     def setCombatOrder(players, monsters):
+        
 
+        #Sorts out the players and the monsters in the list via initiative. Works like a charm
+        
+
+        #This is so we can appand things to here. Only is needed in this function, otherwise it is not in use.
         inCombat = {
             }
 
@@ -45,8 +50,12 @@ class Combat(object):
 
     def lifeStatus(player, combatOrder, outOfCombat , players, monsters, inCombat):
 
+        #This checks to see if the players and monsters have enuff health to fight. We are going to be implomenting if they are paralized or asleep (and things of that nature) soon
+
+        #This list is supper important. Without it, the whole thing would not work DO NOT REMOVE!!!!!
         monName = []
-        
+
+        #This lets us append the names of the monsters to the list above. The reasoning behind that is so we can use the name in if statments
         for i in monsters:
             monName.append(i.name)
         
@@ -66,18 +75,27 @@ class Combat(object):
 
     def targeting(attacker, players, monsters, inCombat):
         #To tell the monsters who to attack.
+
+        #This avoids any confussion and lets us see if the attacker is a monster or a player. It is needed or else none of this will work. Please DO NOT REMOVE THE LISTS BELOW HERE!
         monName = []
-        monHP = []
         plaName = []
+
+
+        
+        #Useing the lists from above, this for statments put the names of players and monsters in the corosponding lists
         for i in monsters:
             monName.append(i.name)
         for i in players:
             plaName.append(i.name)
-            
+
+
+        #This is where we use the updated list to compare the attackers name to the lists. If the attackers name is in monsters, it randomly attacks, else the player gets to choose who to attack
         if attacker.name in plaName:
             print (monName)
             targetName = input("Who does " + attacker.name + " want to attack?")
             valid = False
+
+            #This is so the player can not just skip his own turn by miss spelling the monsters name. It would go on forever if the player never types in a monster who they can attack
             while valid == False:
                 time = 0
                 for i in monsters:
@@ -99,6 +117,9 @@ class Combat(object):
         return target
 
     def calcDamage(attacker):
+
+        #Simply gets the damage done and sets it as a variable
+        
         damageDone = attacker.damage
         return damageDone
         
