@@ -2,6 +2,8 @@
 #Dennis Gordick
 #3/19/2015
 
+import dice
+
 class Monster(object):
     name = ""
     xp = 1
