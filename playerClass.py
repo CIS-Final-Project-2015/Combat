@@ -1,6 +1,7 @@
 import dice
 import modifier
 import testWeapon
+import testPlayers
 
 #This is a test set of players. We tesrt to see if these players can go thrugh the combat system, and also get hit, deal damage, and get initiative.
 
@@ -10,16 +11,14 @@ class Player(object):
     health = 1
     name = " "
     initiative = 1
-    armorClass = 1
     weapon = 1
     
 
     
-    def __init__(self, name, health, initiative, armorClass, weapon):
+    def __init__(self, name, health, initiative, weapon):
         self.health = health
         self.name = name
         self.initiative = initiative
-        self.armorClass = armorClass
         self.weapon = weapon
 
 
@@ -29,6 +28,7 @@ class Player(object):
         crit = weapon.critRange
 
         ifCrit = False
+
         if crit <= hit:
             ifCrit = True
 
@@ -38,12 +38,12 @@ class Player(object):
             damage = weapon.damage
         self.damage = damage
 
-Dave = Player("Dave", 3, 8, 13, testWeapon.dagger)
-Raulph = Player("Raulph", 22, 10, 15, testWeapon.sword)
-Hannah = Player("Hannah", 10, 6, 19, testWeapon.bow)
-Nick = Player("Nick", 2, 9, 11, testWeapon.spear)
+character_1 = Player(testPlayers.player_1.name, testPlayers.player_1.hp, 8, testPlayers.player_1.melee)
+character_2= Player(testPlayers.player_2.name, testPlayers.player_2.hp, 10, testPlayers.player_2.melee)
+character_3 = Player(testPlayers.player_3.name, testPlayers.player_3.hp, 6, testPlayers.player_3.melee)
+character_4 = Player(testPlayers.player_4.name, testPlayers.player_4.hp, 9, testPlayers.player_4.melee)
 
 
 
-players = [Dave, Raulph, Hannah, Nick]
+players = [character_1, character_2, character_3, character_4]
 
