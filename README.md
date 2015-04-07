@@ -1,5 +1,9 @@
 # Combat
 
+#Update 4/7/2015
+
+#We are ready for testing. See if you can do it :) We have a lot of testing things
+
 #Combat team repository
 
 
